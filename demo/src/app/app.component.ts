@@ -1,6 +1,7 @@
 import { FormBuilder, FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
-import { QueryBuilderClassNames, QueryBuilderConfig } from '../../lib';
+// import { QueryBuilderClassNames, QueryBuilderConfig } from '../../lib';
+import { QueryBuilderClassNames, QueryBuilderConfig } from '../../../src';
 
 @Component({
   selector: 'app-root',
@@ -300,7 +301,7 @@ export class AppComponent {
   };
 
   public currentConfig: QueryBuilderConfig;
-  public allowRuleset: boolean = true;
+  public allowRuleset = true;
   public allowCollapse: boolean;
 
   constructor(
