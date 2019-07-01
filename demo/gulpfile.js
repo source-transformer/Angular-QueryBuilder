@@ -9,5 +9,5 @@ gulp.task('copy-lib', (callback) => {
 });
 
 gulp.task('copy-lib:watch', () => {
-  gulp.watch(LIBRARY_SRC, ['copy-lib']);
+  gulp.watch(LIBRARY_SRC, gulp.series('copy-lib'));
 });

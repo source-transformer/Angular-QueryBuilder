@@ -33,8 +33,9 @@ gulp.task('inline-templates', () => {
  * This is a temporary solution until ngc is supported --watch mode.
  * @see: https://github.com/angular/angular/issues/12867
  */
-gulp.task('build:esm', ['inline-templates'], (callback) => {
-  exec('npm run ngcompile', function (error, stdout, stderr) {
+//gulp.task('build:esm', ['inline-templates'], (callback) => {
+gulp.task('build:esm', gulp.series('inline-templates'), (callback) => {
+    exec('npm run ngcompile', function (error, stdout, stderr) {
     console.log(stdout, stderr);
     callback(error)
   });
@@ -45,8 +46,10 @@ gulp.task('build:esm', ['inline-templates'], (callback) => {
  * This is a temporary solution until ngc is supported --watch mode.
  * @see: https://github.com/angular/angular/issues/12867
  */
-gulp.task('build:esm:watch', ['build:esm'], () => {
-  gulp.watch('src/**/*', ['build:esm']);
+
+//gulp.task('build:esm:watch', ['build:esm'], () => {
+gulp.task('build:esm:watch', gulp.series('build:esm'), () => {
+    gulp.watch('src/**/*', gulp.series('build:esm'));
 });
 
 /**
