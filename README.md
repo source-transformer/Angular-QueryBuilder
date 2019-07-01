@@ -309,3 +309,15 @@ That's it.
 
 # Workflow
 See the [angular-library-seed](https://github.com/trekhleb/angular-library-seed) project for details on how to build and run tests.
+
+
+# Updating Angular -> 8.*
+
+npm update --all
+ng update
+ng update @angular/core --force
+ng update rxjs --force
+npm install
+npm audit fix
+ng update
+npm update
