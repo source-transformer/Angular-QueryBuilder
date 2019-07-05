@@ -33,6 +33,7 @@ export interface Field {
   defaultOperator?: any;
   entity?: string;
   validator?: (rule: Rule, parent: RuleSet) => any | null;
+  title?: string;
 }
 
 export interface LocalRuleMeta {

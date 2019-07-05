@@ -115,7 +115,9 @@
     </ng-container>
     <ng-container *queryInput="let rule; let field=field; type: 'number'; let onChange=onChange">
       <mat-form-field [style.width.px]="50">
-        <input matInput [(ngModel)]="rule.value" type="number" (ngModelChange)="onChange()">
+
+        <input matInput [(ngModel)]="rule.value" type="number" (ngModelChange)="onChange()" matTooltip="{{field.title}}">
+
       </mat-form-field>
     </ng-container>
     <ng-container *queryInput="let rule; let field=field; type: 'string'; let onChange=onChange">

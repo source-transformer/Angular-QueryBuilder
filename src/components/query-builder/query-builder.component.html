@@ -127,29 +127,29 @@
             <ng-template #defaultInput>
               <div [ngClass]="getClassNames('inputControlSize')" [ngSwitch]="getInputType(rule.field, rule.operator)">
                 <input [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'string'" type="text">
+                  [disabled]="disabled" *ngSwitchCase="'string'" type="text" title="{{getTitle(rule.field)}}">
                 <input [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'number'" type="number">
+                  [disabled]="disabled" *ngSwitchCase="'number'" type="number" title="{{getTitle(rule.field)}}">
                 <input [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'date'" type="date">
+                  [disabled]="disabled" *ngSwitchCase="'date'" type="date" title="{{getTitle(rule.field)}}">
                 <input [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'time'" type="time">
+                  [disabled]="disabled" *ngSwitchCase="'time'" type="time" title="{{getTitle(rule.field)}}">
                 <select [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'category'">
+                  [disabled]="disabled" *ngSwitchCase="'category'" title="{{getTitle(rule.field)}}">
                   <option *ngFor="let opt of getOptions(rule.field)" [ngValue]="opt.value">
                     {{opt.name}}
                   </option>
                 </select>
                 <ng-container *ngSwitchCase="'multiselect'">
                   <select [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                    [disabled]="disabled" multiple>
+                    [disabled]="disabled" multiple title="{{getTitle(rule.field)}}">
                     <option *ngFor="let opt of getOptions(rule.field)" [ngValue]="opt.value">
                       {{opt.name}}
                     </option>
                   </select>
                 </ng-container>
                 <input [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value" (ngModelChange)="changeInput()"
-                  [disabled]="disabled" *ngSwitchCase="'boolean'" type="checkbox">
+                  [disabled]="disabled" *ngSwitchCase="'boolean'" type="checkbox" title="{{getTitle(rule.field)}}">
               </div>
             </ng-template>
 

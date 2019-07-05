@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { QueryBuilderModule } from '../../lib';
-// import { QueryBuilderModule } from '../../../src';
+// import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -16,7 +16,8 @@ import {
   MatNativeDateModule,
   MatRadioModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -34,7 +35,8 @@ import {
     MatNativeDateModule,
     MatRadioModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

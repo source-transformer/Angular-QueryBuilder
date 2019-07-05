@@ -221,7 +221,7 @@ export class AppComponent {
       nonphysical: {name: 'Nonphysical Attributes'}
     },
     fields: {
-      age: {name: 'Age', type: 'number', entity: 'physical'},
+      age: {name: 'Age', type: 'number', entity: 'physical', title: 'Your Age'},
       gender: {
         name: 'Gender',
         entity: 'physical',
@@ -254,7 +254,7 @@ export class AppComponent {
 
   public config: QueryBuilderConfig = {
     fields: {
-      age: {name: 'Age', type: 'number'},
+      age: {name: 'Age', type: 'number', title: 'Your Age'},
       gender: {
         name: 'Gender',
         type: 'category',

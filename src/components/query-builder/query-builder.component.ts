@@ -162,8 +162,6 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   private buttonGroupContext: ButtonGroupContext;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
-  //TPC: Dependency injection of ChangeDetectorRef was failing because a provider wasn't given to this component
-  //constructor() { }
 
   // ----------OnInit Implementation----------
 
@@ -239,8 +237,6 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   }
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
-
-    //TPC: Dependency injection of ChangeDetectorRef was failing because a provider wasn't given to this component
     this.changeDetectorRef.detectChanges();
   }
 
@@ -268,6 +264,11 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   findQueryInput(type: string): QueryInputDirective {
     const templates = this.parentInputTemplates || this.inputTemplates;
     return templates.find((item) => item.queryInputType === type);
+  }
+
+   getTitle(field: string): string {
+    const fieldObject = this.config.fields[field];
+    return fieldObject.title;
   }
 
   getOperators(field: string): string[] {
@@ -758,13 +759,10 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   }
 
   private handleDataChange(): void {
-    //TPC: Dependency injection of ChangeDetectorRef was failing because a provider wasn't given to this component
     this.changeDetectorRef.markForCheck();
     if (this.onChangeCallback) {
       this.onChangeCallback();
     }
-
-
 
     if (this.parentChangeCallback) {
       this.parentChangeCallback();
