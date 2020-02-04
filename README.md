@@ -4,14 +4,17 @@ A modernized Angular 4+ query builder based on jQuery QueryBuilder. Support for 
 # Getting Started
 
 ## Install
+
+- Angular 8+, use 0.5.0+
+- Angular 6-7, use 0.4.2
+- Angular 4-5, use 0.3.2
+
 `npm install angular2-query-builder`
 
 ## Demo
-Play with the [demo here](https://zebzhao.github.io/Angular-QueryBuilder/demo/).
+Play with the [Demo here](https://zebzhao.github.io/Angular-QueryBuilder/demo/).
 
-[Editable demo](https://zebzhao.github.io/Angular-QueryBuilder/editor/)
-
-[See the Plunker](https://plnkr.co/edit/vtzerj4oFQLB6ukcxb9D?p=preview)
+[Editable Demo](https://zebzhao.github.io/Angular-QueryBuilder/editor/)
 
 ## Documentation
 
@@ -160,9 +163,9 @@ Example of how you can completely customize the query component with another lib
       <mat-radio-button value="or">Or</mat-radio-button>
     </mat-radio-group>
   </ng-container>
-  <ng-container *queryField="let rule; let fields=fields; let changeField=changeField">
+  <ng-container *queryField="let rule; let fields=fields; let onChange=onChange">
     <mat-form-field>
-      <mat-select [(ngModel)]="rule.field" (ngModelChange)="changeField($event, rule)">
+      <mat-select [(ngModel)]="rule.field" (ngModelChange)="onChange($event, rule)">
         <mat-option *ngFor="let field of fields" [value]="field.value">{{field.name}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -207,6 +210,8 @@ See [documentation](https://zebzhao.github.io/Angular-QueryBuilder/) for more de
 |`emptyMessage`|`string`|Optional|| Message to display for an empty Ruleset if empty rulesets are not allowed. |
 |`ngModel`| `Ruleset` |Optional|| Object that stores the state of the component. Supports 2-way binding. |
 |`operatorMap`|`{ [key: string]: string[] }`|Optional|| Used to map field types to list of operators. |
+|`persistValueOnFieldChange`|`boolean`|Optional|`false`| If `true`, when a field changes to another of the same type, and the type is one of: string, number, time, date, or boolean, persist the previous value. This option is ignored if config.calculateFieldChangeValue is provided. |
+|`config.calculateFieldChangeValue`|`(currentField: Field, nextField: Field, currentValue: any) => any`|Optional|| Used to calculate the new value when a rule's field changes. |
 |`value`| `Ruleset` |Optional|| Object that stores the state of the component. |
 
 ## Structural Directives
@@ -303,7 +308,7 @@ Directive to replace the default remove single rule button component.
 |`removeRule`|`(rule: Rule) => void`|Function to handle removing a rule|
 
 ## Dependencies
-- Angular 4+
+- Angular 8+
 
 That's it.
 
